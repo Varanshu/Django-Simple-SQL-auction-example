@@ -1,0 +1,42 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+
+<form action="{% url 'submit' %}" method="post">
+  {% csrf_token %}
+  <div class="form-group">
+    <label for="title">Enter Title</label>
+    <input type="text" name="title" placeholder="Enter Title">
+  </div>
+  <div class="form-group">
+    <label for="email">Enter Email</label>
+    <input type="email" name="email" placeholder="Enter Email">
+  </div>
+  <div class="form-group">
+    <label for="price">Enter Opening Price</label>
+    <input type="number" name="price" placeholder="Enter Price">
+  </div>
+  <div class="form-group">
+    <label for="desc">Enter Description</label>
+    <textarea name="desc" rows="8" cols="30" placeholder="Enter Description"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="link">Link For Photo</label>
+    <input type="text" name="link" placeholder="Link">
+  </div>
+  <div class="form-group">
+    <label for="category">Category</label>
+    <select class="form-control" name="category" required>
+      <option>Fashion</option>
+      <option>Sports</option>
+      <option>Electronics</option>
+      <option>Home Appliances</option>
+      <option>Toys</option>
+      <option>Books</option>
+    </select>
+  </div>
+  <input type="submit" name="Save" value="Save">
+
+</form>
+
+{% endblock %}
